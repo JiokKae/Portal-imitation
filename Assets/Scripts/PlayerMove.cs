@@ -15,7 +15,9 @@ public class PlayerMove : MonoBehaviour
     public Vector3 direction;
     public float magnitude;
 
+
     private Camera eye;
+    public float eyeAngle;
     void Start()
     {
         Application.targetFrameRate = 120;
@@ -46,11 +48,18 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Rotate()
-    {
+    {   
         float turn = playerInput.mouseXMove * rotateSpeed * Time.deltaTime;
         playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0f, turn, 0f);
 
-        eye.transform.localRotation *= Quaternion.Euler(-playerInput.mouseYMove * rotateSpeed * Time.deltaTime, 0f, 0f);
+        // 항상 서있게 해주기
+        playerRigidbody.rotation = Quaternion.Slerp(playerRigidbody.rotation, Quaternion.Euler(0f, playerRigidbody.rotation.eulerAngles.y, 0f), 0.1f); 
     }
 
+	private void LateUpdate()
+	{
+        eyeAngle -= playerInput.mouseYMove * rotateSpeed * Time.deltaTime;
+        eyeAngle = Mathf.Clamp(eyeAngle, -90f, 90f);
+        eye.transform.localRotation = Quaternion.Euler(eyeAngle, 0f, 0f);
+    }
 }

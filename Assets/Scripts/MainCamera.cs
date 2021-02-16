@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-
     Portal[] portals;
 
     void Awake()
@@ -17,7 +14,7 @@ public class MainCamera : MonoBehaviour
 
         for (int i = 0; i < portals.Length; i++)
         {
-            //portals[i].PrePortalRender();
+            portals[i].PrePortalRender();
         }
         for (int i = 0; i < portals.Length; i++)
         {
@@ -26,7 +23,7 @@ public class MainCamera : MonoBehaviour
 
         for (int i = 0; i < portals.Length; i++)
         {
-            //portals[i].PostPortalRender();
+            portals[i].PostPortalRender();
         }
 
     }

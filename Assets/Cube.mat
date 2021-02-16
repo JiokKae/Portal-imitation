@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_PortalShader
-  m_Shader: {fileID: 4800000, guid: a44f43ab87c3c4f4a97ea359b27e55a1, type: 3}
+  m_Name: Cube
+  m_Shader: {fileID: 4800000, guid: e961675561adc3145825e2f4b8a2740d, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -28,15 +28,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BarrelPower: 7.39
-    - _Cutoff: 0.5
-    - _Float0: 0
-    - _Open: 1
-    - _Open1: 0
+    - _Glossiness: 0.669
+    - _Metalic: 0
     - __dirty: 0
-    - _d: 0.74
-    - _l: 1
-    - _rad: 0.98
     m_Colors:
-    - _PortalColor: {r: 1.6078432, g: 0.9490196, b: 0.21960784, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _SliceCenter: {r: 0, g: 0, b: 0, a: 0}
+    - _SliceNormal: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

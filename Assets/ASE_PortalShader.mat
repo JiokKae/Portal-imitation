@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_PortalShader
+  m_Name: ASE_PortalShader
   m_Shader: {fileID: 4800000, guid: a44f43ab87c3c4f4a97ea359b27e55a1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -28,15 +28,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BarrelPower: 7.39
+    - _BarrelPower: 0
     - _Cutoff: 0.5
     - _Float0: 0
     - _Open: 1
     - _Open1: 0
     - __dirty: 0
-    - _d: 0.74
-    - _l: 1
-    - _rad: 0.98
+    - _d: 0
+    - _l: 0
+    - _rad: 1
     m_Colors:
-    - _PortalColor: {r: 1.6078432, g: 0.9490196, b: 0.21960784, a: 0}
+    - _PortalColor: {r: 1.433962, g: 0.8700438, b: 0.250267, a: 0}
   m_BuildTextureStacks: []
