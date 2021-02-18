@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 2120191430}
   - component: {fileID: 2120191429}
   - component: {fileID: 2120191428}
+  - component: {fileID: 2120191431}
+  - component: {fileID: 2120191433}
   m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: Eye
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120191426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.335, z: 0}
+  m_LocalRotation: {x: -0, y: 1.15858406e-10, z: 8.9681415e-11, w: 1}
+  m_LocalPosition: {x: 0, y: 1.2599998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3074551513601197402}
@@ -58,13 +60,13 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 56
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -104,6 +106,78 @@ MonoBehaviour:
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_BlendHint: 0
+--- !u!114 &2120191431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120191426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6de019018304d4408a3ff8479898ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2120191433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120191426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 2120191427}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &3074551513600841944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3074551513600842104}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3074551513601197394}
@@ -1634,9 +1708,10 @@ GameObject:
   - component: {fileID: 8763785321065065118}
   - component: {fileID: 1213257878}
   - component: {fileID: 1213257879}
-  m_Layer: 0
+  - component: {fileID: 1924898694}
+  m_Layer: 7
   m_Name: Atlas
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1668,10 +1743,10 @@ Animator:
   m_GameObject: {fileID: 3074551513600842106}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2b657a50f2f9cc649b2221759d4b31c7, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90310431ea43bac47aec84b4c3f5ef90, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1690,7 +1765,7 @@ CapsuleCollider:
   m_Radius: 0.39874053
   m_Height: 2.0767353
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0429336, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &8763785321065065118
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1700,7 +1775,7 @@ Rigidbody:
   m_GameObject: {fileID: 3074551513600842106}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 0
   m_AngularDrag: 30
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1720,10 +1795,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rotateSpeed: 30
+  rotateSpeed: 300
   angle: 0
   direction: {x: 0, y: 0, z: 0}
   magnitude: 0
+  eyeAngle: 0
 --- !u!114 &1213257879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1816,19 @@ MonoBehaviour:
   horizontalAxisName: Horizontal
   mouseXAxisName: Mouse X
   mouseYAxisName: Mouse Y
+--- !u!114 &1924898694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074551513600842106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e64bde8094b74eb67226dee4b1385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsObject: {fileID: 3074551513600842106}
 --- !u!1 &3074551513600842108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1750,7 +1839,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3074551513601197404}
   - component: {fileID: 3074551513587242104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3074551513600842108}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3074551513601197402}

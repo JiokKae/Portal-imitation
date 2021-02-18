@@ -22,6 +22,15 @@ public class PortalTraveller : MonoBehaviour
         if (graphicsClone == null)
         {
             graphicsClone = Instantiate(graphicsObject);
+            Destroy(graphicsClone.GetComponent<PortalTraveller>());
+            
+            Camera cam = graphicsClone.GetComponentInChildren<Camera>();
+            if (cam)
+                cam.enabled = false;
+            AudioListener ear = graphicsClone.GetComponentInChildren<AudioListener>();
+            if (ear)
+                ear.enabled = false;
+
             graphicsClone.transform.parent = graphicsObject.transform.parent;
             graphicsClone.transform.localScale = graphicsObject.transform.localScale;
             originalMaterials = GetMaterials(graphicsObject);

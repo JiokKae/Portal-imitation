@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float angle;
     public Vector3 direction;
     public float magnitude;
-
+    public float maxSpeed;
 
     private Camera eye;
     public float eyeAngle;
@@ -27,7 +27,14 @@ public class PlayerMove : MonoBehaviour
         eye = GetComponentInChildren<Camera>();
     }
 
-    void Update()
+	private void FixedUpdate()
+	{
+		if(playerRigidbody.velocity.magnitude > maxSpeed)
+		{
+            playerRigidbody.velocity = playerRigidbody.velocity.normalized * maxSpeed;
+        }
+	}
+	void Update()
     {
         Rotate();
 
