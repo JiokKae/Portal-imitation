@@ -11,7 +11,6 @@ public class MainCamera : MonoBehaviour
 
     void OnPreCull()
     {
-
         for (int i = 0; i < portals.Length; i++)
         {
             portals[i].PrePortalRender();
@@ -20,12 +19,13 @@ public class MainCamera : MonoBehaviour
         {
             portals[i].Render();
         }
-
         for (int i = 0; i < portals.Length; i++)
         {
             portals[i].PostPortalRender();
         }
-
     }
-
+    void Update()
+	{
+        Debug.DrawRay(transform.position, transform.forward * 1000.0f, Color.red);
+	}
 }

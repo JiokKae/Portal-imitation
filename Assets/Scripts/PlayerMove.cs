@@ -18,6 +18,10 @@ public class PlayerMove : MonoBehaviour
 
     private Camera eye;
     public float eyeAngle;
+
+    public Portal orangePortal;
+    public Portal bluePortal;
+
     void Start()
     {
         Application.targetFrameRate = 120;
@@ -40,7 +44,29 @@ public class PlayerMove : MonoBehaviour
 
         Move();
 
-        //playerAnimator.SetFloat("Move", playerInput.move);
+        playerAnimator.SetFloat("VelocityX", playerInput.horizontalMove);
+        playerAnimator.SetFloat("VelocityY", playerInput.verticalMove);
+
+        if (playerInput.jumpMove == 1 && playerRigidbody.velocity.magnitude < 0.001f)
+            playerRigidbody.AddForce(transform.up * 3000f);
+
+        if(Input.GetMouseButtonDown(0))
+		{
+            RaycastHit hit;
+
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            if (Physics.Raycast(ray, out hit, 1000.0f))
+			{
+                if (hit.collider.gameObject.layer == 3)
+				{
+                    bluePortal.transform.position = hit.point;
+                    bluePortal.transform.localRotation = Quaternion.FromToRotation(Vector3.zero, hit.normal);
+                    Debug.Log("º®¿¡ ½ô " + hit.point);
+                }
+                    
+			}
+
+		}
     }
 
     private void Move()
