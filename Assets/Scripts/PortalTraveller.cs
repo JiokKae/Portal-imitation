@@ -40,6 +40,7 @@ public class PortalTraveller : MonoBehaviour
         {
             graphicsClone.SetActive(true);
         }
+        gameObject.layer = 8;
     }
 
     // Called once no longer touching portal (excluding when teleporting)
@@ -51,6 +52,7 @@ public class PortalTraveller : MonoBehaviour
         {
             originalMaterials[i].SetVector("sliceNormal", Vector3.zero);
         }
+        gameObject.layer = 0;
     }
 
     public void SetSliceOffsetDst(float dst, bool clone)

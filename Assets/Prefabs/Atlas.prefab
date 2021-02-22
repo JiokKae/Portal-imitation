@@ -67,7 +67,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 1983
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1831,6 +1831,8 @@ MonoBehaviour:
   magnitude: 0
   maxSpeed: 18
   eyeAngle: 0
+  orangePortal: {fileID: 0}
+  bluePortal: {fileID: 0}
 --- !u!114 &1213257879
 MonoBehaviour:
   m_ObjectHideFlags: 0

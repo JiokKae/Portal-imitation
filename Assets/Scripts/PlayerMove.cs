@@ -47,7 +47,7 @@ public class PlayerMove : MonoBehaviour
         playerAnimator.SetFloat("VelocityX", playerInput.horizontalMove);
         playerAnimator.SetFloat("VelocityY", playerInput.verticalMove);
 
-        if (playerInput.jumpMove == 1 && playerRigidbody.velocity.magnitude < 0.001f)
+        if (playerInput.jumpMove == 1 && Mathf.Abs(playerRigidbody.velocity.y) < 0.01f)
             playerRigidbody.AddForce(transform.up * 3000f);
 
         if(Input.GetMouseButtonDown(0))
@@ -57,11 +57,18 @@ public class PlayerMove : MonoBehaviour
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (Physics.Raycast(ray, out hit, 1000.0f))
 			{
+                Portalable portalable = hit.collider.GetComponent<Portalable>();
+                if (portalable)
+				{
+                    portalable.PortalOpen(hit.point, hit.normal);
+                }
                 if (hit.collider.gameObject.layer == 3)
 				{
-                    bluePortal.transform.position = hit.point;
-                    bluePortal.transform.localRotation = Quaternion.FromToRotation(Vector3.zero, hit.normal);
+                    
+                    bluePortal.transform.position = hit.point + hit.normal * 0.001f;
+                    bluePortal.transform.forward = -hit.normal;
                     Debug.Log("º®¿¡ ½ô " + hit.point);
+                    Debug.Log(hit.normal);
                 }
                     
 			}
