@@ -60,7 +60,8 @@ public class PlayerMove : MonoBehaviour
                 Portalable portalable = hit.collider.GetComponent<Portalable>();
                 if (portalable)
 				{
-                    portalable.PortalOpen(hit.point, hit.normal);
+                   
+                    portalable.StartPortalOpen(hit.point, hit.normal);
                 }
                 if (hit.collider.gameObject.layer == 3)
 				{
