@@ -29,7 +29,7 @@ public class ApertureButton : MonoBehaviour
 
 	private void Update()
 	{
-		BottonTop.transform.position = Vector3.Lerp(BottonTop.transform.position, new Vector3(0, destHeight, 0), Time.deltaTime * 2f);
+		BottonTop.transform.position = Vector3.Lerp(BottonTop.transform.position, new Vector3(transform.position.x, destHeight, transform.position.z), Time.deltaTime * 2f);
 	}
 
 	private void OnTriggerEnter(Collider other)

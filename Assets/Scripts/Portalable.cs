@@ -14,7 +14,7 @@ public class Portalable : MonoBehaviour
 
 	}
 
-	public void StartPortalOpen(Vector3 hitPoint, Vector3 hitNormal, Portal portal)
+	public void StartPortalOpen(Vector3 hitPoint, Vector3 hitNormal, Portal portal, bool negative = false)
 	{
 		Vector3 hitLocalpoint = transform.worldToLocalMatrix.MultiplyPoint(hitPoint);
 		Debug.Log("hit localPoint: " + hitLocalpoint);
@@ -27,7 +27,7 @@ public class Portalable : MonoBehaviour
 		}
 
 		//StartCoroutine(PortalOpen(hitLocalpoint, hitNormal));
-		PortalOpen(hitLocalpoint, hitNormal, portal);
+		PortalOpen(hitLocalpoint, hitNormal, portal, negative);
 	}
 
 	void MeshBooleanPortalOpen(Vector3 hitLocalpoint)
@@ -139,7 +139,7 @@ public class Portalable : MonoBehaviour
 	}
 
 	
-	void PortalOpen(Vector3 hitLocalpoint, Vector3 hitNormal, Portal portal)
+	void PortalOpen(Vector3 hitLocalpoint, Vector3 hitNormal, Portal portal, bool negative = false)
 	//IEnumerator PortalOpen(Vector3 hitLocalpoint, Vector3 hitNormal)
 	{
 		Vector3[] vertices = new Vector3[16]
@@ -164,12 +164,21 @@ public class Portalable : MonoBehaviour
 		};
 
 		Vector3 portalScale;
-		if (hitNormal.x != 0)
-		{
-			portalScale = new Vector3(3 / transform.localScale.z, 6 / transform.localScale.y, 1.0f);
-		}
-		else
-			portalScale = new Vector3(3 / transform.localScale.x, 6 / transform.localScale.y, 1.0f);
+        if (hitNormal.x != 0)
+        {
+            Debug.Log("x");
+            portalScale = new Vector3(3 / transform.localScale.z, 6 / transform.localScale.y, 1.0f);
+        }
+        else if (hitNormal.z != 0)
+        {
+            Debug.Log("z");
+            portalScale = new Vector3(3 / transform.localScale.x, 6 / transform.localScale.y, 1.0f);
+        }
+        else
+        {
+            Debug.Log("y");
+            portalScale = new Vector3(3 / transform.localScale.x, 6 / transform.localScale.z, 1.0f);
+        }
 
 		Matrix4x4 scaleMatrix = Matrix4x4.Scale(portalScale);
         for (int i = 8; i < vertices.Length; i++)
@@ -209,9 +218,14 @@ public class Portalable : MonoBehaviour
 		Vector3 newHitPoint = transform.localToWorldMatrix.MultiplyPoint(hitLocalpoint);
 
 		portal.transform.position = newHitPoint + hitNormal * 0.001f;
-		portal.transform.forward = -hitNormal;
 
-		ActiveMesh(vertices);
+
+        if(negative)
+    		portal.transform.forward = hitNormal;
+        else
+            portal.transform.forward = -hitNormal;
+
+        ActiveMesh(vertices);
     }
 
     void ActiveMesh(Vector3[] vertices)

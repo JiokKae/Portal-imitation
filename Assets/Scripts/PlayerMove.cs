@@ -71,7 +71,7 @@ public class PlayerMove : MonoBehaviour
                     if(blueClick)
                         portalable.StartPortalOpen(hit.point, hit.normal, bluePortal);
                     else
-                        portalable.StartPortalOpen(hit.point, hit.normal, orangePortal);
+                        portalable.StartPortalOpen(hit.point, hit.normal, orangePortal, true);
                 }   
 			}
 		}
