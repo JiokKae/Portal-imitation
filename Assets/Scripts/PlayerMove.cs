@@ -50,7 +50,15 @@ public class PlayerMove : MonoBehaviour
         if (playerInput.jumpMove == 1 && Mathf.Abs(playerRigidbody.velocity.y) < 0.01f)
             playerRigidbody.AddForce(transform.up * 3000f);
 
-        if(Input.GetMouseButtonDown(0))
+        bool blueClick = false;
+        bool orangeClick = false;
+
+        if (Input.GetMouseButtonDown(0))
+            blueClick = true;
+        else if (Input.GetMouseButtonDown(1))
+            orangeClick = true;
+
+        if (blueClick | orangeClick)
 		{
             RaycastHit hit;
 
@@ -60,20 +68,12 @@ public class PlayerMove : MonoBehaviour
                 Portalable portalable = hit.collider.GetComponent<Portalable>();
                 if (portalable)
 				{
-                   
-                    portalable.StartPortalOpen(hit.point, hit.normal);
-                }
-                if (hit.collider.gameObject.layer == 3)
-				{
-                    
-                    bluePortal.transform.position = hit.point + hit.normal * 0.001f;
-                    bluePortal.transform.forward = -hit.normal;
-                    Debug.Log("º®¿¡ ½ô " + hit.point);
-                    Debug.Log(hit.normal);
-                }
-                    
+                    if(blueClick)
+                        portalable.StartPortalOpen(hit.point, hit.normal, bluePortal);
+                    else
+                        portalable.StartPortalOpen(hit.point, hit.normal, orangePortal);
+                }   
 			}
-
 		}
     }
 
