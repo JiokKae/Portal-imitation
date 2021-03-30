@@ -8,7 +8,7 @@ public class ApertureButton : MonoBehaviour
 
     public GameObject BottonTop;
 
-	public float destHeight;
+	public float destHeight = 0.2315f;
 
 	public Texture2D blueTex;
 	public Texture2D orangeTex;
@@ -29,7 +29,7 @@ public class ApertureButton : MonoBehaviour
 
 	private void Update()
 	{
-		BottonTop.transform.position = Vector3.Lerp(BottonTop.transform.position, new Vector3(transform.position.x, destHeight, transform.position.z), Time.deltaTime * 2f);
+		BottonTop.transform.position = Vector3.Lerp(BottonTop.transform.position, transform.position + new Vector3(0, destHeight, 0), Time.deltaTime * 2f);
 	}
 
 	private void OnTriggerEnter(Collider other)
