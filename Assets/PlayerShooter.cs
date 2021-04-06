@@ -21,13 +21,13 @@ public class PlayerShooter : MonoBehaviour
 
 	private void OnAnimatorIK(int layerIndex)
 	{
-        
+        gunPivot.position = playerAnimator.GetIKHintPosition(AvatarIKHint.RightElbow);
 
         playerAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1.0f);
         playerAnimator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1.0f);
 
         playerAnimator.SetIKPosition(AvatarIKGoal.RightHand, gunPivot.position);
-        playerAnimator.SetIKRotation(AvatarIKGoal.RightHand, gunPivot.rotation);
+        playerAnimator.SetIKRotation(AvatarIKGoal.RightHand, gunPivot.localRotation);
 
     }
 }

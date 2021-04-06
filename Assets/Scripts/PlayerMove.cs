@@ -100,7 +100,7 @@ public class PlayerMove : MonoBehaviour
 	private void LateUpdate()
 	{
         eyeAngle -= playerInput.mouseYMove * rotateSpeed * Time.deltaTime;
-        eyeAngle = Mathf.Clamp(eyeAngle, -270f, -90f);
+        eyeAngle = Mathf.Clamp(eyeAngle, -270f, -120f);
         spine.localRotation = Quaternion.Euler(eyeAngle, 0f, 0f);
         eyePivot.localRotation = Quaternion.Euler(eyeAngle + 180f, 0f, 0f);
 
