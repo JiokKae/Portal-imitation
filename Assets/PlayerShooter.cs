@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerShooter : MonoBehaviour
 {
     public Transform gunPivot;
-
     private Animator playerAnimator;
 
     // Start is called before the first frame update
@@ -17,15 +16,18 @@ public class PlayerShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 	private void OnAnimatorIK(int layerIndex)
 	{
+        
+
         playerAnimator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1.0f);
         playerAnimator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1.0f);
 
         playerAnimator.SetIKPosition(AvatarIKGoal.RightHand, gunPivot.position);
         playerAnimator.SetIKRotation(AvatarIKGoal.RightHand, gunPivot.rotation);
+
     }
 }

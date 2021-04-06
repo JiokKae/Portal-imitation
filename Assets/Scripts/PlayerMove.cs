@@ -16,7 +16,8 @@ public class PlayerMove : MonoBehaviour
     public float magnitude;
     public float maxSpeed;
 
-    private Camera eye;
+    public Transform spine;
+    public Transform eyePivot;
     public float eyeAngle;
 
     public Portal orangePortal;
@@ -28,7 +29,6 @@ public class PlayerMove : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimator = GetComponent<Animator>();
-        eye = GetComponentInChildren<Camera>();
     }
 
 	private void FixedUpdate()
@@ -100,7 +100,9 @@ public class PlayerMove : MonoBehaviour
 	private void LateUpdate()
 	{
         eyeAngle -= playerInput.mouseYMove * rotateSpeed * Time.deltaTime;
-        eyeAngle = Mathf.Clamp(eyeAngle, -90f, 90f);
-        eye.transform.localRotation = Quaternion.Euler(eyeAngle, 0f, 0f);
+        eyeAngle = Mathf.Clamp(eyeAngle, -270f, -90f);
+        spine.localRotation = Quaternion.Euler(eyeAngle, 0f, 0f);
+        eyePivot.localRotation = Quaternion.Euler(eyeAngle + 180f, 0f, 0f);
+
     }
 }

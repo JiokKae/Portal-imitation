@@ -309,7 +309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9435d32efda85494496f306d2ef2a041, type: 2}
+  - {fileID: 2100000, guid: 9b19e674d1f52484e807dd7c10323a3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -958,7 +958,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9435d32efda85494496f306d2ef2a041, type: 2}
+  - {fileID: 2100000, guid: 9b19e674d1f52484e807dd7c10323a3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1329,6 +1329,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7de1e36e3fabd47b375d84cfe44e33, type: 3}
+--- !u!4 &815607466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4590149995182446998, guid: 2bf0c19d6bd863c419f68f8f039ac913, type: 3}
+  m_PrefabInstance: {fileID: 2093499137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832313804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1449,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9435d32efda85494496f306d2ef2a041, type: 2}
+  - {fileID: 2100000, guid: 11648a09f6876e84a97ba7f754ca8a3b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1560,7 +1565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920741320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: -10.43}
+  m_LocalPosition: {x: 0, y: -5.86, z: -9.56}
   m_LocalScale: {x: 13.5, y: 10, z: 1}
   m_Children:
   - {fileID: 45768751}
@@ -2470,6 +2475,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1213257878, guid: 2bf0c19d6bd863c419f68f8f039ac913, type: 3}
+      propertyPath: eyePivot
+      value: 
+      objectReference: {fileID: 815607466}
+    - target: {fileID: 1213257878, guid: 2bf0c19d6bd863c419f68f8f039ac913, type: 3}
       propertyPath: bluePortal
       value: 
       objectReference: {fileID: 1241420662}
@@ -2555,8 +2564,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121555517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -12.5, z: -17.25}
-  m_LocalScale: {x: 20, y: 5, z: 20}
+  m_LocalPosition: {x: 0.0542, y: -12.5, z: -16.7352}
+  m_LocalScale: {x: 13.712318, y: 5, z: 13.550172}
   m_Children:
   - {fileID: 1227724695}
   m_Father: {fileID: 1366207920}
