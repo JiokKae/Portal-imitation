@@ -37,13 +37,13 @@ public class Door : MonoBehaviour
         rightDoor.localPosition = new Vector3(.75f + openModulus * 1.5f, 1.25f, 0f);
     }
 
-    void Open()
+    public void Open()
     {
         destination = 1;
 
     }
 
-    void Close()
+    public void Close()
     {
         destination = 0;
     }

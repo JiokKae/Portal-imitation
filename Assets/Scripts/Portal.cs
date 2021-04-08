@@ -29,6 +29,7 @@ public class Portal : MonoBehaviour
         trackedTravellers = new List<PortalTraveller>();
         screenMeshFilter = screen.GetComponent<MeshFilter>();
         screen.material.SetInt("displayMask", 1);
+        
     }
 
     void LateUpdate()

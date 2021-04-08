@@ -22,6 +22,8 @@ public class PlayerMove : MonoBehaviour
 
     public Portal orangePortal;
     public Portal bluePortal;
+    public bool orangePortalOn;
+    public bool bluePortalOn;
 
     void Start()
     {

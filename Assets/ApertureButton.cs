@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public delegate void DelegateFunc();
 
 public class ApertureButton : MonoBehaviour
 {
@@ -13,6 +16,9 @@ public class ApertureButton : MonoBehaviour
 	public Texture2D blueTex;
 	public Texture2D orangeTex;
 
+
+    public DelegateFunc onFunction;
+    public DelegateFunc offFunction;
 	// sound
 	AudioSource buttonAudioPlayer;
 	public AudioClip buttonDownClip;
@@ -43,6 +49,7 @@ public class ApertureButton : MonoBehaviour
 				materials[i].SetTexture("_MainTex", orangeTex);
 			}
 			buttonAudioPlayer.PlayOneShot(buttonDownClip);
+            onFunction();
 		}
 	}
 
@@ -57,6 +64,7 @@ public class ApertureButton : MonoBehaviour
 				materials[i].SetTexture("_MainTex", blueTex);
 			}
 			buttonAudioPlayer.PlayOneShot(buttonUpClip);
+            offFunction();
 		}
 	}
 
