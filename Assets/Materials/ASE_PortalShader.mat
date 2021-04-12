@@ -40,11 +40,11 @@ Material:
     - _Cutoff: 0.5
     - _Exp: 9.3
     - _Float0: 0
-    - _Open: 1
+    - _Open: 0
     - _Open1: 0
     - _Speed: 0.2
     - _UVDistortIntensity: 0.08
-    - __dirty: 1
+    - __dirty: 0
     - _d: 0
     - _l: 0
     - _rad: 0.71

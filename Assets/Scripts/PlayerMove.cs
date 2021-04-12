@@ -25,6 +25,9 @@ public class PlayerMove : MonoBehaviour
     public bool orangePortalOn;
     public bool bluePortalOn;
 
+    public Transform grabPivot;
+    public Grabbable grabbedObject;
+
     void Start()
     {
         Application.targetFrameRate = 120;
@@ -35,10 +38,16 @@ public class PlayerMove : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+        if(grabbedObject)
+		{
+            grabbedObject.Grab(grabPivot.position);
+		}
+
 		if(playerRigidbody.velocity.magnitude > maxSpeed)
 		{
             playerRigidbody.velocity = playerRigidbody.velocity.normalized * maxSpeed;
         }
+
 	}
 	void Update()
     {
@@ -54,13 +63,16 @@ public class PlayerMove : MonoBehaviour
 
         bool blueClick = false;
         bool orangeClick = false;
+        bool eClick = false;
 
         if (Input.GetMouseButtonDown(0))
             blueClick = true;
         else if (Input.GetMouseButtonDown(1))
             orangeClick = true;
+        else if (Input.GetKeyDown(KeyCode.E))
+            eClick = true;
 
-        if (blueClick | orangeClick)
+        if (blueClick | orangeClick | eClick)
 		{
             RaycastHit hit;
 
@@ -68,13 +80,18 @@ public class PlayerMove : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 1000.0f))
 			{
                 Portalable portalable = hit.collider.GetComponent<Portalable>();
+                Grabbable grabbable;
                 if (portalable)
 				{
                     if(blueClick)
                         portalable.StartPortalOpen(hit.point, hit.normal, bluePortal);
                     else
                         portalable.StartPortalOpen(hit.point, hit.normal, orangePortal, true);
-                }   
+                }
+                else if(grabbable = hit.collider.GetComponent<Grabbable>())
+				{
+                    grabbedObject = grabbable;
+				}
 			}
 		}
     }
